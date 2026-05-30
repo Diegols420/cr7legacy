@@ -1,0 +1,1278 @@
+/* ============================================================
+   CR7 LEGACY — styles.css
+   ============================================================ */
+
+/* VARIABLES */
+:root {
+  --color1: #00529F;
+  /* Azul */
+  --color2: #FEBE10;
+  /* Oro */
+  --color3: #FFFFFF;
+  /* Blanco */
+  --color4: #EE324E;
+  /* Rojo */
+  --color5: #000000;
+  /* Negro */
+  --color6: #002A50;
+  /* Azul metálico */
+  --color7: #C48A05;
+  /* Dorado metálico */
+  --color8: #A3172E;
+  /* Rojo metálico */
+  --color9: #b2bbd4;
+  /* Gris azulado */
+  --color10: #1A1A1A;
+  /* Negro metálico */
+
+  --fuente1: "Saira Condensed", sans-serif;
+  --fuente2: "Roboto", sans-serif;
+}
+
+/* ============================================================
+   RESET
+   ============================================================ */
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--fuente1);
+  line-height: 1.8;
+  font-size: 16px;
+}
+
+h1 {
+  font-size: 36px;
+}
+
+h2 {
+  font-size: 30px;
+  font-family: var(--fuente1);
+  font-weight: 700;
+}
+
+h3 {
+  font-size: 18px;
+}
+
+/* ============================================================
+   UTILIDADES
+   ============================================================ */
+.center {
+  text-align: center;
+}
+
+.img-fluid {
+  width: 100%;
+  height: auto;
+  display: block;
+  margin-left: auto;
+}
+
+.video-fluid {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  display: block;
+}
+
+/* Clases de prueba de color */
+.dr {
+  background-color: #EE324E;
+}
+
+.ki {
+  background-color: #FEBE10;
+}
+
+.kai {
+  background-color: #002A50;
+}
+
+/* ============================================================
+   ESPACIADOS
+   ============================================================ */
+.padding-sh {
+  padding-top: 3px;
+  padding-bottom: 3px;
+}
+
+.padding-sm {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.padding-m {
+  padding-top: 25px;
+  padding-bottom: 25px;
+}
+
+.padding-xl {
+  padding-top: 80px;
+  padding-bottom: 80px;
+}
+
+/* ============================================================
+   CONTAINER Y GRID FLEXBOX
+   ============================================================ */
+.container {
+  max-width: 91%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin-left: -15px;
+  margin-right: -15px;
+}
+
+.col {
+  flex-grow: 1;
+  flex-basis: 0;
+  padding-left: 15px;
+  padding-right: 15px;
+  box-sizing: border-box;
+}
+
+.col-33 {
+  max-width: 33.33%;
+  flex-basis: 33.33%;
+}
+
+.col-40 {
+  max-width: 40%;
+  flex-basis: 40%;
+}
+
+.col-50 {
+  max-width: 50%;
+  flex-basis: 50%;
+}
+
+.col-60 {
+  max-width: 60%;
+  flex-basis: 60%;
+}
+
+.col-66 {
+  max-width: 66.67%;
+  flex-basis: 66.67%;
+}
+
+.col-100 {
+  max-width: 100%;
+  flex-basis: 100%;
+}
+
+/* ============================================================
+   TOP BAR
+   ============================================================ */
+.top-bar {
+  background-color: var(--color1);
+  color: var(--color9);
+  padding-top: 3px;
+  padding-bottom: 3px;
+  font-size: 12px;
+  font-family: var(--fuente2);
+  font-weight: 500;
+}
+
+.top-bar a {
+  color: var(--color9);
+  text-decoration: none;
+  margin-right: 10px;
+  transition: all 0.2s ease-in-out;
+}
+
+.top-bar a:hover {
+  color: var(--color3);
+}
+
+.top-bar-main {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* ============================================================
+   HEADER Y NAVBAR
+   ============================================================ */
+.header {
+  background-color: var(--color3);
+  color: var(--color5);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  /* Sombra sutil para separar el header del contenido */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.nav-bar {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  /* CORRECCIÓN: logo a la izquierda, menú a la derecha */
+  justify-content: space-between;
+}
+
+.nav-logo {
+  width: 120px;
+  flex-shrink: 0;
+}
+
+.nav-menu {
+  display: flex;
+  flex-direction: row;
+  gap: 40px;
+  justify-content: center;
+  font-size: 19px;
+}
+
+.nav-menu-link {
+  color: var(--color5);
+  text-decoration: none;
+  display: inline-block;
+  font-weight: 600;
+  position: relative;
+  transition: all 0.4s ease-in-out;
+  white-space: nowrap;
+}
+
+.nav-menu-link::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  transform: translate(-50%);
+  width: 0%;
+  height: 4px;
+  background-color: var(--color2);
+  transition: width 0.4s ease-in-out;
+}
+
+.nav-menu-link:hover::after {
+  width: 100%;
+}
+
+.nav-link-active {
+  color: var(--color5);
+  text-decoration: underline;
+  text-decoration-color: var(--color2);
+  text-decoration-thickness: 4px;
+  text-underline-offset: 5.5px;
+}
+
+/* ============================================================
+   BANNER / HERO
+   ============================================================ */
+.padding-banner {
+  padding-top: 3px;
+  padding-bottom: 53px;
+}
+
+.banner-text {
+  font-size: clamp(2rem, 8vw, 140px);
+  font-family: var(--fuente1);
+  font-weight: 600;
+  text-align: start;
+  line-height: 0.85em;
+  letter-spacing: -0.02em;
+}
+
+/* ============================================================
+   BOTONES
+   CORRECCIÓN: .principal-button y .academia-button unificados.
+   Ambos comparten el mismo bloque de estilos.
+   ============================================================ */
+.principal-button,
+.academia-button {
+  font-family: var(--fuente1);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  background-color: var(--color2);
+  color: var(--color5);
+  font-size: clamp(16px, 1.2vw, 18px);
+  font-weight: 700;
+  border: none;
+  text-transform: uppercase;
+  transition: all 0.3s ease-in-out;
+  position: relative;
+  overflow: hidden;
+  padding: 16px 38px 15px 38px;
+  cursor: pointer;
+}
+
+/* Botón exclusivo de la sección academia CTA */
+.academia-button {
+  background-color: var(--color2);
+  color: var(--color5);
+}
+
+/* Margen superior solo para el botón del banner */
+.principal-button {
+  margin-top: 45px;
+}
+
+.principal-button span,
+.academia-button span {
+  position: relative;
+  z-index: 2;
+  transition: color 0.3s ease-in-out;
+}
+
+.principal-button:hover span,
+.academia-button:hover span {
+  color: var(--color3);
+  /* blanco cuando el fondo negro sube */
+}
+
+.principal-button::after,
+.academia-button::after {
+  content: "";
+  width: 100%;
+  height: 100%;
+  background-color: var(--color5);
+  position: absolute;
+  z-index: 1;
+  bottom: -80px;
+  left: 0;
+  transition: all 0.3s ease-in-out;
+}
+
+.principal-button:hover::after,
+.academia-button:hover::after {
+  bottom: 0;
+}
+
+/* ============================================================
+   BLOQUE UNIFICADO: ACADEMIA CTA + OFERTAS
+   ============================================================ */
+.academia-ofertas {
+  background-color: var(--color10);
+  color: var(--color3);
+  padding-top: 60px;
+  padding-bottom: 60px;
+}
+
+.academia-cta {
+  display: flex;
+  align-items: center;
+  gap: 0;
+}
+
+.ofertas-bloque {
+  background-color: var(--color5);
+  color: var(--color3);
+  padding-top: 60px;
+  padding-bottom: 60px;
+}
+
+.academia-cta-izq {
+  flex: 0 0 45%;
+  padding-right: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.academia-cta-linea {
+  width: 2px;
+  background-color: var(--color2);
+  flex-shrink: 0;
+  align-self: stretch;
+}
+
+.academia-cta-etiqueta {
+  font-family: var(--fuente2);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  color: var(--color2);
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+
+.academia-cta-titulo {
+  font-family: var(--fuente1);
+  font-size: 3.2vw;
+  font-weight: 900;
+  color: var(--color3);
+  line-height: 1.0;
+  letter-spacing: -0.02em;
+  margin: 0;
+}
+
+.academia-cta-der {
+  flex: 1;
+  padding-left: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 20px;
+  align-items: flex-start;
+}
+
+.academia-cta-texto {
+  font-family: var(--fuente2);
+  font-size: 18px;
+  color: var(--color9);
+  line-height: 1.7;
+  margin: 0;
+}
+
+.academia-ofertas-divisor {
+  height: 1px;
+  background-color: var(--color2);
+  opacity: 0.4;
+  margin-bottom: 40px;
+}
+
+.ofertas-bloque .section-etiqueta {
+  color: var(--color2);
+}
+
+.ofertas-titulo {
+  font-family: var(--fuente1);
+  font-size: clamp(1.4rem, 2.5vw, 1.8rem);
+  font-weight: 900;
+  color: var(--color3);
+  margin-bottom: 6px;
+}
+
+.ofertas-aviso {
+  font-family: var(--fuente2);
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--color2);
+  letter-spacing: 0.03em;
+  margin-bottom: 28px;
+}
+
+.ofertas-desc {
+  font-family: var(--fuente2);
+  font-size: 14px;
+  color: var(--color9);
+  line-height: 1.7;
+  margin-bottom: 28px;
+}
+
+/* Responsive bloque unificado */
+@media (max-width: 768px) {
+  .academia-cta {
+    flex-direction: column;
+    gap: 30px;
+  }
+
+  .academia-cta-izq {
+    padding-right: 0;
+    padding-bottom: 30px;
+    border-right: none;
+    border-bottom: 2px solid var(--color2);
+    width: 100%;
+  }
+
+  .academia-cta-der {
+    padding-left: 0;
+    width: 100%;
+  }
+}
+
+
+
+/* ============================================================
+   TABLA DE TARIFAS
+   ============================================================ */
+
+/* Wrapper con scroll horizontal para móvil */
+.tbl-wrapper {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.tbl-tarifa {
+  width: 100%;
+  min-width: 480px;
+  border-collapse: collapse;
+  border: 2px solid var(--color2);
+}
+
+.tbl-tarifa th,
+.tbl-tarifa td {
+  padding: 15px;
+  text-align: center;
+}
+
+.tbl-tarifa tbody tr {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.tbl-tarifa tbody tr:nth-child(odd) {
+  background-color: #222222;
+  color: var(--color3);
+}
+
+.tbl-tarifa tbody tr:nth-child(even) {
+  background-color: var(--color10);
+  color: var(--color3);
+}
+
+.tbl-tarifa td:first-child {
+  text-align: left;
+  padding-left: 20px;
+}
+
+.tbl-tarifa tbody td:last-child {
+  color: var(--color2);
+  font-weight: 700;
+}
+
+.tbl-tarifa tfoot td {
+  background-color: #111111;
+  color: var(--color9);
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.tbl-tarifa caption {
+  font-weight: bold;
+  text-align: left;
+  font-size: 18px;
+  margin-bottom: 8px;
+}
+
+.tbl-tarifa tfoot {
+  text-align: right;
+  font-style: italic;
+}
+
+.tbl-tarifa thead {
+  background-color: var(--color2);
+  color: var(--color5);
+}
+
+/* Hover en filas */
+.tbl-tarifa tbody tr {
+  transition: background-color 0.2s ease;
+}
+
+.tbl-tarifa tbody tr:hover {
+  background-color: rgba(0, 82, 159, 0.12);
+  cursor: default;
+}
+
+/* ============================================================
+   FOOTER
+   CORRECCIÓN: texto negro sobre dorado — contraste legible
+   ============================================================ */
+.footer {
+  background-color: var(--color2);
+  color: var(--color5);
+}
+
+/* ============================================================
+   BOTÓN SCROLL-UP
+   ============================================================ */
+.scroll-up {
+  border: 1px solid var(--color5);
+  width: 36px;
+  height: 36px;
+  right: 25px;
+  bottom: 25px;
+  line-height: 45px;
+  text-align: center;
+  background-color: var(--color3);
+  color: var(--color5);
+  text-decoration: none;
+  border-radius: 10%;
+  transition: all 0.2s ease-in-out;
+  position: fixed;
+  overflow: hidden;
+  z-index: 99;
+}
+
+.scroll-up i {
+  position: relative;
+  z-index: 2;
+}
+
+.scroll-up::after {
+  content: "";
+  width: 100%;
+  height: 100%;
+  background-color: var(--color2);
+  position: absolute;
+  z-index: 1;
+  bottom: -90px;
+  left: 0;
+  transition: all 0.2s ease-in-out;
+}
+
+.scroll-up:hover::after {
+  bottom: 0;
+}
+
+/* ============================================================
+   RESPONSIVE — MEDIA QUERIES
+   768px → tablet / móvil grande
+   480px → móvil pequeño
+   ============================================================ */
+
+/* --- Tablet y móvil (≤ 768px) --- */
+@media (max-width: 768px) {
+
+  /* Todas las columnas al 100% */
+  .col-33,
+  .col-40,
+  .col-50,
+  .col-60,
+  .col-66 {
+    max-width: 100%;
+    flex-basis: 100%;
+  }
+
+  /* Ocultar el link de YouTube en la top bar */
+  .top-bar-youtube {
+    display: none;
+  }
+
+  /* Banner */
+  .padding-banner {
+    padding-bottom: 30px;
+  }
+
+  .banner-text {
+    text-align: center;
+  }
+
+  .principal-button {
+    margin-top: 24px;
+    display: block;
+    text-align: center;
+  }
+
+  /* Espaciados reducidos */
+  .padding-xl {
+    padding-top: 50px;
+    padding-bottom: 50px;
+  }
+}
+
+/* --- Móvil pequeño (≤ 480px) --- */
+@media (max-width: 480px) {
+
+  .container {
+    max-width: 95%;
+  }
+
+  h2 {
+    font-size: 24px;
+  }
+
+  .banner-text {
+    font-size: clamp(1.8rem, 9vw, 60px);
+  }
+
+  .padding-xl {
+    padding-top: 36px;
+    padding-bottom: 36px;
+  }
+
+  .principal-button,
+  .academia-button {
+    width: 100%;
+    justify-content: center;
+  }
+
+  /* Centrar redes sociales cuando el link de YouTube está oculto */
+  .top-bar-social {
+    margin: 0 auto;
+  }
+}
+
+/* ============================================================
+   DIVISOR DE COLORES
+   ============================================================ */
+.divisor-colores {
+  display: block;
+  height: 6px;
+  width: 100%;
+  background-color: var(--color5);
+}
+
+/* ============================================================
+   STATS
+   ============================================================ */
+.stats {
+  background-color: var(--color10);
+  padding-top: 40px;
+  padding-bottom: 40px;
+}
+
+.stats-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+  gap: 24px;
+}
+
+.stat-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.stat-number {
+  font-family: var(--fuente1);
+  font-size: clamp(3rem, 6vw, 72px);
+  font-weight: 800;
+  color: var(--color2);
+  line-height: 1;
+}
+
+.stat-plus {
+  font-size: 0.6em;
+  vertical-align: super;
+  color: var(--color2);
+}
+
+.stat-label {
+  font-family: var(--fuente2);
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--color9);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-top: 6px;
+}
+
+/* ============================================================
+   QUIÉNES SOMOS
+   ============================================================ */
+.quienes {
+  background-color: var(--color10);
+}
+
+.quienes-row {
+  align-items: center;
+  gap: 0;
+}
+
+.quienes-img {
+  border-radius: 4px;
+  object-fit: cover;
+  max-height: 480px;
+}
+
+.quienes-content {
+  padding-left: 50px !important;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.quienes-etiqueta {
+  font-family: var(--fuente2);
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  color: var(--color2);
+  margin-bottom: 10px;
+}
+
+.quienes-content h2 {
+  color: var(--color3);
+  margin-bottom: 20px;
+  font-size: clamp(1.6rem, 3vw, 2.2rem);
+}
+
+.quienes-texto {
+  font-family: var(--fuente2);
+  font-size: 15px;
+  color: var(--color9);
+  line-height: 1.8;
+  margin-bottom: 16px;
+}
+
+.quienes-btn {
+  margin-top: 10px;
+  align-self: flex-start;
+}
+
+/* ============================================================
+   SECTION HEADER (título de sección reutilizable)
+   ============================================================ */
+.section-header {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.section-etiqueta {
+  font-family: var(--fuente2);
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  color: var(--color2);
+  margin-bottom: 8px;
+}
+
+.section-subtitulo {
+  font-family: var(--fuente2);
+  font-size: 15px;
+  color: var(--color9);
+  margin-top: 10px;
+}
+
+/* ============================================================
+   QUÉ OFRECEMOS — cards
+   ============================================================ */
+.ofrecemos {
+  background-color: var(--color5);
+  color: var(--color3);
+}
+
+.ofrecemos .section-header h2 {
+  color: var(--color3);
+}
+
+.cards-row {
+  gap: 0;
+}
+
+.card-oferta {
+  background-color: var(--color10);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 4px;
+  padding: 36px 28px;
+  height: 100%;
+  transition: transform 0.3s ease, border-color 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.card-oferta:hover {
+  transform: translateY(-6px);
+  border-color: var(--color2);
+}
+
+.card-oferta-destacada {
+  background-color: var(--color10);
+  border-color: rgba(255, 255, 255, 0.08);
+  transform: none;
+}
+
+.card-oferta-badge {
+  display: inline-block;
+  background-color: var(--color2);
+  color: var(--color5);
+  font-family: var(--fuente2);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  padding: 4px 10px;
+  border-radius: 2px;
+  margin-bottom: 20px;
+}
+
+.card-oferta-icono {
+  font-size: 32px;
+  color: var(--color2);
+  margin-bottom: 16px;
+}
+
+.card-oferta-titulo {
+  font-family: var(--fuente1);
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--color3);
+  margin-bottom: 4px;
+}
+
+.card-oferta-edad {
+  font-family: var(--fuente2);
+  font-size: 12px;
+  color: var(--color9);
+  letter-spacing: 0.05em;
+  margin-bottom: 16px;
+}
+
+.card-oferta-desc {
+  font-family: var(--fuente2);
+  font-size: 14px;
+  color: var(--color9);
+  line-height: 1.7;
+  margin-bottom: 20px;
+}
+
+.card-oferta-lista {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.card-oferta-lista li {
+  font-family: var(--fuente2);
+  font-size: 13px;
+  color: var(--color9);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.card-oferta-lista li .fa-check {
+  color: var(--color2);
+  font-size: 11px;
+  flex-shrink: 0;
+}
+
+/* ============================================================
+   TESTIMONIOS
+   ============================================================ */
+.testimonios {
+  background-color: var(--color10);
+  color: var(--color3);
+}
+
+.testimonios .section-header h2 {
+  color: var(--color3);
+}
+
+.testimonios-row {
+  gap: 0;
+}
+
+.testimonio-card {
+  background-color: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 4px;
+  padding: 32px 28px;
+  height: 100%;
+  transition: border-color 0.3s ease, transform 0.3s ease;
+}
+
+.testimonio-card:hover {
+  border-color: var(--color2);
+  transform: translateY(-4px);
+}
+
+.testimonio-card-destacada {
+  border-color: var(--color2);
+  background-color: rgba(254, 190, 16, 0.06);
+}
+
+.testimonio-estrellas {
+  color: var(--color2);
+  font-size: 14px;
+  margin-bottom: 16px;
+  display: flex;
+  gap: 3px;
+}
+
+.testimonio-texto {
+  font-family: var(--fuente2);
+  font-size: 14px;
+  color: var(--color9);
+  line-height: 1.8;
+  font-style: italic;
+  margin-bottom: 24px;
+}
+
+.testimonio-autor {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.testimonio-avatar {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background-color: var(--color2);
+  color: var(--color5);
+  font-family: var(--fuente1);
+  font-weight: 700;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.testimonio-nombre {
+  font-family: var(--fuente1);
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--color3);
+  line-height: 1.2;
+}
+
+.testimonio-categoria {
+  font-family: var(--fuente2);
+  font-size: 12px;
+  color: var(--color9);
+  margin-top: 2px;
+}
+
+/* ============================================================
+   RESPONSIVE — NUEVAS SECCIONES
+   ============================================================ */
+@media (max-width: 768px) {
+
+  /* Stats */
+  .stats-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px 10px;
+    text-align: center;
+  }
+
+  /* Quiénes somos */
+  .quienes-content {
+    padding-left: 15px !important;
+    padding-top: 30px;
+  }
+
+  .quienes-btn {
+    align-self: center;
+  }
+
+  /* Cards y testimonios */
+  .cards-row .col-33,
+  .testimonios-row .col-33 {
+    max-width: 100%;
+    flex-basis: 100%;
+    margin-bottom: 16px;
+  }
+
+  .card-oferta-destacada {
+    transform: none;
+  }
+}
+
+@media (max-width: 480px) {
+
+  .stats-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 24px 8px;
+  }
+
+  .stat-number {
+    font-size: 2.5rem;
+  }
+}
+
+/* Botón gris sin hover */
+.btn-gris {
+  font-family: var(--fuente1);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  background-color: #333333;
+  color: var(--color3);
+  font-size: clamp(16px, 1.2vw, 18px);
+  font-weight: 700;
+  text-transform: uppercase;
+  padding: 16px 38px 15px 38px;
+  cursor: pointer;
+  border: none;
+}
+
+/* ============================================================
+   PRODUCTOS DESTACADOS
+   ============================================================ */
+.productos-preview {
+  background-color: var(--color5) !important;
+  color: var(--color3);
+}
+
+.productos-preview .section-header h2 {
+  color: var(--color3);
+}
+
+.productos-row {
+  gap: 0;
+  align-items: stretch;
+}
+
+.productos-row .col {
+  display: flex;
+  flex-direction: column;
+}
+
+.productos-row .producto-card {
+  flex: 1;
+}
+
+.producto-card {
+  background-color: var(--color10);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 4px;
+  overflow: hidden;
+  transition: transform 0.3s ease, border-color 0.3s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.producto-card:hover {
+  transform: translateY(-5px);
+  border-color: var(--color2);
+}
+
+.producto-img-wrap {
+  position: relative;
+  overflow: hidden;
+  background-color: var(--color5);
+}
+
+.producto-img {
+  width: 100%;
+  height: 460px;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.4s ease;
+}
+
+.producto-card:hover .producto-img {
+  transform: scale(1.05);
+}
+
+.producto-tag {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  background-color: var(--color2);
+  color: var(--color5);
+  font-family: var(--fuente2);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  padding: 4px 10px;
+  border-radius: 2px;
+}
+
+.producto-tag-oferta {
+  background-color: var(--color4);
+  color: var(--color3);
+}
+
+.producto-info {
+  padding: 20px 20px 24px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.producto-nombre {
+  font-family: var(--fuente1);
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--color3);
+  margin-bottom: 4px;
+}
+
+.producto-desc {
+  font-family: var(--fuente2);
+  font-size: 13px;
+  color: var(--color9);
+  margin-bottom: 12px;
+}
+
+.producto-precio {
+  font-family: var(--fuente1);
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--color2);
+  margin-top: auto;
+}
+
+.producto-precio-antes {
+  font-family: var(--fuente2);
+  font-size: 14px;
+  color: var(--color9);
+  text-decoration: line-through;
+  margin-bottom: 2px;
+}
+
+.productos-cta {
+  text-align: center;
+  margin-top: 48px;
+}
+
+/* ============================================================
+   FRANJA COMUNIDAD
+   ============================================================ */
+.comunidad-franja {
+  background-color: var(--color1);
+  padding-top: 70px;
+  padding-bottom: 70px;
+}
+
+.comunidad-franja-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+}
+
+.comunidad-franja-texto {
+  flex: 1;
+}
+
+.comunidad-franja-texto .section-etiqueta {
+  margin-bottom: 10px;
+}
+
+.comunidad-franja-texto h2 {
+  color: var(--color3);
+  font-size: clamp(1.6rem, 3vw, 2.4rem);
+  margin-bottom: 12px;
+}
+
+.comunidad-franja-sub {
+  font-family: var(--fuente2);
+  font-size: 15px;
+  color: var(--color9);
+  line-height: 1.7;
+  max-width: 520px;
+}
+
+.comunidad-franja-accion {
+  flex-shrink: 0;
+}
+
+/* Responsive nuevas secciones */
+@media (max-width: 768px) {
+
+  .productos-row .col-33 {
+    max-width: 100%;
+    flex-basis: 100%;
+    margin-bottom: 16px;
+  }
+
+  .comunidad-franja-inner {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .comunidad-franja-sub {
+    max-width: 100%;
+  }
+
+  .comunidad-franja-accion .principal-button {
+    margin-top: 0;
+  }
+}
